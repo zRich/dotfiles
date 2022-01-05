@@ -1,6 +1,6 @@
 # Neovim configuration
 
-based on ChristianChiarulli's configuation find [here](github.com/ChristianChiarulli/Neovim-from-scratch.git)
+based on ChristianChiarulli's configuation find [here](https://github.com/ChristianChiarulli/Neovim-from-scratch)
 
 # Config
 
