@@ -69,7 +69,8 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
-  use "fatih/vim-go"
+  --use "fatih/vim-go"
+  use "ray-x/go.nvim"
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
