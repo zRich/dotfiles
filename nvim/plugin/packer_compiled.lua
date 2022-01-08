@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/home/rich/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["go.nvim"] = {
-    loaded = true,
-    path = "/home/rich/.local/share/nvim/site/pack/packer/start/go.nvim",
-    url = "https://github.com/ray-x/go.nvim"
-  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/rich/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
@@ -163,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rich/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-go"] = {
+    loaded = true,
+    path = "/home/rich/.local/share/nvim/site/pack/packer/start/vim-go",
+    url = "https://github.com/fatih/vim-go"
   }
 }
 
