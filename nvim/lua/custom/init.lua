@@ -23,8 +23,15 @@ customPlugins.add(function(use)
       "williamboman/nvim-lsp-installer",
    }
 
+ use {
+     'ray-x/go.nvim'
+   }
+
  end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
 -- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
+--
+require('go').setup()
+require("auto_cmds")

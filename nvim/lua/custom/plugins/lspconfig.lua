@@ -5,7 +5,8 @@ M.setup_lsp = function(attach, capabilities)
 
    -- lspservers with default config
 
-   local servers = { "gopls", "sumneko_lua"  }
+    -- local servers = { "gopls", "sumneko_lua" }
+    local servers = { "gopls" }
 
    for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
