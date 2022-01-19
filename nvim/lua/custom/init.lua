@@ -27,6 +27,9 @@ customPlugins.add(function(use)
      'ray-x/go.nvim'
    }
 
+  use {
+    'TovarishFin/vim-solidity'
+  }
  end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
