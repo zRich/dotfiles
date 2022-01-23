@@ -30,6 +30,18 @@ customPlugins.add(function(use)
   use {
     'TovarishFin/vim-solidity'
   }
+
+  use {
+    'folke/tokyonight.nvim'
+  }
+
+  use {
+    'patstockwell/vim-monokai-tasty'
+  }
+
+  use {
+    'ishan9299/nvim-solarized-lua'
+  }
  end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
