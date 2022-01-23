@@ -14,17 +14,39 @@ map("n", "<leader>q", ":q <CR>")
 local customPlugins = require "core.customPlugins"
 
 customPlugins.add(function(use)
-   use {
-      "max397574/better-escape.nvim",
-      event = "InsertEnter",
+   -- use {
+   --    "max397574/better-escape.nvim",
+   --    event = "InsertEnter",
+   -- }
+
+ use {
+      "williamboman/nvim-lsp-installer",
    }
 
-   use {
-      "user or orgname/reponame",
-      --further packer options
+ use {
+     'ray-x/go.nvim'
    }
-end)
+
+  use {
+    'TovarishFin/vim-solidity'
+  }
+
+  use {
+    'folke/tokyonight.nvim'
+  }
+
+  use {
+    'patstockwell/vim-monokai-tasty'
+  }
+
+  use {
+    'ishan9299/nvim-solarized-lua'
+  }
+ end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
 -- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
+--
+require('go').setup()
+require("auto_cmds")

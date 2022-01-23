@@ -1,17 +1,18 @@
-require "modules.options"
-require "modules.keymaps"
-require "modules.plugins"
-require "modules.colorscheme"
-require "modules.cmp"
-require "lsp"
-require "modules.telescope"
-require "modules.treesitter"
-require "modules.autopairs"
---require("modules.go").setup()
--- require("modules.gopls")
+local core_modules = {
+   "core.options",
+   "core.autocmds",
+   "core.mappings",
+}
 
--- Format on save
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
+for _, module in ipairs(core_modules) do
+   local ok, err = pcall(require, module)
+   if not ok then
+      error("Error loading " .. module .. "\n\n" .. err)
+   end
+end
 
--- Import on save
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+-- non plugin mappings
+require("core.mappings").misc()
+
+-- try to call custom init
+pcall(require, "custom")
