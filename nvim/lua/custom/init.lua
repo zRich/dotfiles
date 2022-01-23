@@ -49,4 +49,4 @@ customPlugins.add(function(use)
 -- https://nvchad.github.io/config/walkthrough
 --
 require('go').setup()
-require("auto_cmds")
+-- require("auto_cmds")
