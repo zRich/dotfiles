@@ -5,7 +5,7 @@ M.setup_lsp = function(attach, capabilities)
 
    -- lspservers with default config
 
-  local servers = { "gopls", "sumneko_lua" }
+  -- local servers = { "tsserver"}
    -- local servers = { "gopls" }
 
   -- for _, lsp in ipairs(servers) do
@@ -28,6 +28,9 @@ M.setup_lsp = function(attach, capabilities)
         staticcheck = true,
       },
     },
+  }
+
+  lspconfig.tsserver.setup {
   }
 
   local sumneko_root_path = "/usr/local/bin/lua-language-server/"
