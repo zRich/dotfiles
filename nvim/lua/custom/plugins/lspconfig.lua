@@ -1,44 +1,55 @@
 local M = {}
 
 M.setup_lsp = function(attach, capabilities)
-   local lspconfig = require "lspconfig"
+   local lsp_installer = require "nvim-lsp-installer"
 
-   -- lspservers with default config
-
-  -- local servers = { "tsserver"}
-   -- local servers = { "gopls" }
-
-  -- for _, lsp in ipairs(servers) do
-  --     lspconfig[lsp].setup {
-  --        on_attach = attach,
-  --        capabilities = capabilities,
-  --        flags = {
-  --           debounce_text_changes = 150,
-  --        },
-  --     }
-  -- end
-   
-  lspconfig.gopls.setup {
-    cmd = {"gopls", "serve"},
-    settings = {
-      gopls = {
-        analyses = {
-          unusedparams = true,
-        },
-        staticcheck = true,
+   lsp_installer.settings {
+      ui = {
+         icons = {
+            server_installed = "﫟" ,
+            server_pending = "",
+            server_uninstalled = "✗",
+         },
       },
-    },
-  }
+   }
 
-  lspconfig.tsserver.setup {
-  }
+   lsp_installer.on_server_ready(function(server)
+      local opts = {
+         on_attach = attach,
+         capabilities = capabilities,
+         flags = {
+            debounce_text_changes = 150,
+         },
+         settings = {},
+      }
 
-  local sumneko_root_path = "/usr/local/bin/lua-language-server/"
-  local sumneko_binary = "/usr/local/bin/lua-language-server/bin/lua-language-server"
+      if server.name == 'gopls' then 
+            opts = {
+              cmd = {"gopls", "serve"},
+              settings = { 
+                gopls = { 
+                  analyses = {
+                    unusedparams = true,
+                  },
+                  staticcheck = true,
+                },
+              },
+            } 
+          end
+      
+      if server.name == 'tsserver' then 
+        opts.on_attach = function(client, bufnr)
+           client.resolved_capabilities.document_formatting = false
+           vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
+         end
+      end
+      
+    local sumneko_root_path = "/usr/local/bin/lua-language-server/"
+    local sumneko_binary = "/usr/local/bin/lua-language-server/bin/lua-language-server"
 
-  require'lspconfig'.sumneko_lua.setup {
-    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-    settings = {
+    if server.name == 'sumneko_lua' then
+    opts.cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua"}
+    opts.settings = {
       Lua = {
         runtime = {
           version = "Lua 5.3",
@@ -51,9 +62,12 @@ M.setup_lsp = function(attach, capabilities)
           library = vim.api.nvim_get_runtime_file(';', true),
         },
       },
-    },
-  }
+    }
+  end    
+
+  server:setup(opts)
+      -- vim.cmd [[ do User LspAttachBuffers ]]
+   end)
 end
 
 return M
-
