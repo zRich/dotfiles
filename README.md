@@ -10,3 +10,9 @@
 ```shell:n
 npm install -g typescript typescript-language-server
 ```
+
+## Install null-ls 
+```shell:n
+npm install --save-dev --save-exact prettier
+npm install eslint --save-dev
+```
