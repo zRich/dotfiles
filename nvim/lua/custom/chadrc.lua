@@ -10,7 +10,10 @@ M.ui = {
    theme = "solarized",
 }
 
+local userPlugins = require "custom.plugins"
+
 M.plugins = {
+  install = userPlugins,
    options = {
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig",

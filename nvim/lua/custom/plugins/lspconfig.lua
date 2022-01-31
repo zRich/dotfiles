@@ -24,17 +24,19 @@ M.setup_lsp = function(attach, capabilities)
       }
 
       if server.name == 'gopls' then 
-            opts = {
-              cmd = {"gopls", "serve"},
-              settings = { 
-                gopls = { 
-                  analyses = {
-                    unusedparams = true,
-                  },
-                  staticcheck = true,
-                },
-              },
-            } 
+        require('go').setup{}
+        opts = require'go.lsp'.config()
+            -- opts = {
+            --   cmd = {"gopls", "serve"},
+            --   settings = { 
+            --     gopls = { 
+            --       analyses = {
+            --         unusedparams = true,
+            --       },
+            --       staticcheck = true,
+            --     },
+            --   },
+            -- } 
           end
       
       if server.name == 'tsserver' then 
