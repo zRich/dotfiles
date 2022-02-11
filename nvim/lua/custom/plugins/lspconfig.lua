@@ -26,7 +26,7 @@ M.setup_lsp = function(attach, capabilities)
       if server.name == 'gopls' then 
         require('go').setup{}
         opts = require'go.lsp'.config()
-            -- opts = {
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})                  -- opts = {
             --   cmd = {"gopls", "serve"},
             --   settings = { 
             --     gopls = { 
@@ -65,6 +65,7 @@ M.setup_lsp = function(attach, capabilities)
         },
       },
     }
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
   end    
 
   server:setup(opts)
