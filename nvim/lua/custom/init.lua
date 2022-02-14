@@ -8,7 +8,11 @@ local map = require("core.utils").map
 
 map("n", "<leader>cc", ":Telescope <CR>")
 map("n", "<leader>q", ":q <CR>")
-map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
+map("n", "<leader>rn", ":lua vim.lsp.buf.rename() <CR>")
+map("n", "<DOWN>", ":m .+1 <CR>")
+map("n", "<UP>", ":m .-2 <CR>")
+map("v", "<DOWN>", ":m '>+1 <CR>gv=gv")
+map("v", "<UP>", ":m '<-2 <CR>gv=gv")
 -- NOTE: the 4th argument in the map function can be a table i.e options but its most likely un-needed so dont worry about it
 
 require('go').setup()
