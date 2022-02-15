@@ -37,4 +37,10 @@ return {
   {
     'sbdchd/neoformat'
   },
+
+  {
+    'prettier/vim-prettier',
+    run = 'yarn install',
+  },
+
 }
