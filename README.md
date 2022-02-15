@@ -16,3 +16,5 @@ npm install -g typescript typescript-language-server
 npm install --save-dev --save-exact prettier
 npm install eslint --save-dev
 ```
+
+`:Prettier` for JSX files
