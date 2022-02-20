@@ -24,26 +24,16 @@ M.setup_lsp = function(attach, capabilities)
       }
 
       if server.name == 'gopls' then 
-        require('go').setup{}
-        opts = require'go.lsp'.config()
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})                  -- opts = {
-            --   cmd = {"gopls", "serve"},
-            --   settings = { 
-            --     gopls = { 
-            --       analyses = {
-            --         unusedparams = true,
-            --       },
-            --       staticcheck = true,
-            --     },
-            --   },
-            -- } 
-          end
+        -- require('go').setup{}
+        -- opts = require'go.lsp'.config()
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})  
+      end
       
       if server.name == 'tsserver' then 
         opts.on_attach = function(client, bufnr)
            client.resolved_capabilities.document_formatting = false
-           vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
-         end
+        end
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
       end
       
     local sumneko_root_path = "/usr/local/bin/lua-language-server/"

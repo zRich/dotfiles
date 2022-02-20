@@ -2,9 +2,13 @@ return {
  {
       "williamboman/nvim-lsp-installer"
     },
- {
-     'ray-x/go.nvim'
-   },
+ -- {
+ --     'ray-x/go.nvim'
+ --   },
+
+  {
+    'fatih/vim-go'
+  },
 
   {
     'TovarishFin/vim-solidity'
