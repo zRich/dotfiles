@@ -3,7 +3,7 @@ return {
       "williamboman/nvim-lsp-installer"
     },
  -- {
- --     'ray-x/go.nvim'
+ --   'kaicataldo/material.vim'
  --   },
 
   {
