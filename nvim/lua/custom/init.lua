@@ -15,7 +15,4 @@ map("v", "<C-Down>", ":m '>+1 <CR>gv=gv")
 map("v", "<C-Up>", ":m '<-2 <CR>gv=gv")
 -- NOTE: the 4th argument in the map function can be a table i.e options but its most likely un-needed so dont worry about it
 
-require('go').setup()
--- Run gofmt on save
--- require("auto_cmds")
--- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
+--require('go').setup()

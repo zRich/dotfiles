@@ -7,7 +7,7 @@ local M = {}
 
 M.ui = {
    -- theme = "onedark",
-   theme = "solarized",
+   -- theme = "pablo",
 }
 
 local userPlugins = require "custom.plugins"

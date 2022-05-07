@@ -1,10 +1,7 @@
 return {
- {
-      "williamboman/nvim-lsp-installer"
-    },
- -- {
- --   'kaicataldo/material.vim'
- --   },
+-- {
+--      "williamboman/nvim-lsp-installer"
+--    },
 
   {
     'fatih/vim-go'
