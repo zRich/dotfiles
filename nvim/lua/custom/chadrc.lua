@@ -9,17 +9,6 @@ M.ui = {
    theme = "gruvchad",
 }
 
-local userPlugins = require "custom.plugins"
-
-M.plugins = {
-  install = userPlugins,
-   options = {
-      lspconfig = {
-         setup_lspconf = "",
-      },
-   },
-}
-
 M.options = {
    -- custom = {}
    -- general nvim/vim options , check :h optionname to know more about an option
