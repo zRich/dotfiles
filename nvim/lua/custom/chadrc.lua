@@ -6,8 +6,7 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-   -- theme = "onedark",
-   -- theme = "pablo",
+   theme = "gruvchad",
 }
 
 local userPlugins = require "custom.plugins"
@@ -16,7 +15,7 @@ M.plugins = {
   install = userPlugins,
    options = {
       lspconfig = {
-         setup_lspconf = "custom.plugins.lspconfig",
+         setup_lspconf = "",
       },
    },
 }

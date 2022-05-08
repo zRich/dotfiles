@@ -37,7 +37,7 @@ packer.init {
       prompt_border = "single",
    },
    git = {
-      clone_timeout = 60, -- seconds
+      clone_timeout = 180, -- seconds
    },
    auto_clean = true,
    compile_on_sync = true,

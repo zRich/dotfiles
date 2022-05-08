@@ -6,6 +6,23 @@ if not present then
 end
 
 local plugins = {
+
+  ["ravenxrz/DAPInstall.nvim"] = {},
+
+  ["fatih/molokai"] = {},
+
+  ["prettier/vim-prettier"] = {
+       run = "yarn install",
+  },
+
+  ["fatih/vim-go"] = {},
+
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+        config = function ()
+          require("plugins.configs.null-ls").setup()
+        end,
+  },
+
    ["nvim-lua/plenary.nvim"] = {},
    ["lewis6991/impatient.nvim"] = {},
 
@@ -15,10 +32,14 @@ local plugins = {
 
    ["NvChad/extensions"] = {},
 
-   ["NvChad/nvim-base16.lua"] = {
+   ["NvChad/base46"] = {
       after = "packer.nvim",
       config = function()
-         require("colors").init()
+         local ok, base46 = pcall(require, "base46")
+
+         if ok then
+            base46.load_theme()
+         end
       end,
    },
 
@@ -29,7 +50,7 @@ local plugins = {
    },
 
    ["kyazdani42/nvim-web-devicons"] = {
-      after = "nvim-base16.lua",
+      after = "base46",
       config = function()
          require "plugins.configs.icons"
       end,
@@ -68,8 +89,6 @@ local plugins = {
       end,
    },
 
-   ["fatih/molokai"] = {},
-
    ["nvim-treesitter/nvim-treesitter"] = {
       event = { "BufRead", "BufNewFile" },
       run = ":TSUpdate",
@@ -90,30 +109,23 @@ local plugins = {
    },
 
    -- lsp stuff
-   ["williamboman/nvim-lsp-installer"] = {},
-   ["fatih/vim-go"] = {},
 
-   ["jose-elias-alvarez/null-ls.nvim"] = {
-      config = function ()
-        require("plugins.configs.null-ls").setup()
-      end,
-   },
-
-   ["prettier/vim-prettier"] = {
-     run = "yarn install",
-   },
-
-   ["neovim/nvim-lspconfig"] = {
-      module = "lspconfig",
+   ["williamboman/nvim-lsp-installer"] = {
       opt = true,
       setup = function()
-         require("core.utils").packer_lazy_load "nvim-lspconfig"
+         require("core.utils").packer_lazy_load "nvim-lsp-installer"
          -- reload the current file so lsp actually starts for it
          vim.defer_fn(function()
             vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
          end, 0)
       end,
+   },
+
+   ["neovim/nvim-lspconfig"] = {
+      after = "nvim-lsp-installer",
+      module = "lspconfig",
       config = function()
+         require "plugins.configs.lsp_installer"
          require "plugins.configs.lspconfig"
       end,
    },
@@ -212,7 +224,6 @@ local plugins = {
    -- file managing , picker etc
    ["kyazdani42/nvim-tree.lua"] = {
       cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-
       setup = function()
          require("core.mappings").nvimtree()
       end,

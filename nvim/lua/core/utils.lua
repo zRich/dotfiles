@@ -1,7 +1,5 @@
 local M = {}
 
-local cmd = vim.cmd
-
 M.close_buffer = function(force)
    if vim.bo.buftype == "terminal" then
       vim.api.nvim_win_hide(0)
@@ -43,7 +41,7 @@ M.load_config = function()
 end
 
 M.map = function(mode, keys, command, opt)
-   local options = { noremap = true, silent = true }
+   local options = { silent = true }
 
    if opt then
       options = vim.tbl_extend("force", options, opt)
@@ -69,43 +67,6 @@ M.packer_lazy_load = function(plugin, timer)
    end
 end
 
--- Highlights functions
-
--- Define bg color
--- @param group Group
--- @param color Color
-
-M.bg = function(group, col)
-   cmd("hi " .. group .. " guibg=" .. col)
-end
-
--- Define fg color
--- @param group Group
--- @param color Color
-M.fg = function(group, col)
-   cmd("hi " .. group .. " guifg=" .. col)
-end
-
--- Define bg and fg color
--- @param group Group
--- @param fgcol Fg Color
--- @param bgcol Bg Color
-M.fg_bg = function(group, fgcol, bgcol)
-   cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
-end
-
-M.load_ifExists = function(module)
-   if #module ~= 0 then
-      if type(module) == "string" then
-         require(module)
-
-         -- file[1] = module & file[2] = function
-      elseif type(module) == "table" then
-         require(module[1])[module[2]]()
-      end
-   end
-end
-
 -- remove plugins defined in chadrc
 M.remove_default_plugins = function(plugins)
    local removals = require("core.utils").load_config().plugins.remove or {}
@@ -118,10 +79,18 @@ M.remove_default_plugins = function(plugins)
 end
 
 -- merge default/user plugin tables
-
 M.plugin_list = function(default_plugins)
    local user_plugins = require("core.utils").load_config().plugins.user
-   local plug_override = require("core.default_config").plugins.override
+
+   -- require if string is present
+   local ok
+
+   if type(user_plugins) == "string" then
+      ok, user_plugins = pcall(require, user_plugins)
+      if ok and not type(user_plugins) == "table" then
+         user_plugins = {}
+      end
+   end
 
    -- merge default + user plugin table
    default_plugins = vim.tbl_deep_extend("force", default_plugins, user_plugins)
@@ -132,7 +101,6 @@ M.plugin_list = function(default_plugins)
       default_plugins[key][1] = key
 
       final_table[#final_table + 1] = default_plugins[key]
-      plug_override[#plug_override + 1] = default_plugins[key]
    end
 
    return final_table
@@ -140,13 +108,11 @@ end
 
 M.load_override = function(default_table, plugin_name)
    local user_table = require("core.utils").load_config().plugins.override[plugin_name]
-
    if type(user_table) == "table" then
       default_table = vim.tbl_deep_extend("force", default_table, user_table)
    else
       default_table = default_table
    end
-
    return default_table
 end
 

@@ -9,7 +9,8 @@ local user_cmd = vim.api.nvim_create_user_command
 -- Useful when one wants to use that keymap for any other purpose
 
 -- Don't copy the replaced text after pasting in visual mode
-map("v", "p", "p:let @+=@0<CR>")
+-- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true })
 
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http<cmd> ://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -129,15 +130,15 @@ M.lspconfig = function()
       vim.lsp.buf.signature_help()
    end)
 
-   map("n", "<space>D", function()
+   map("n", "<leader>D", function()
       vim.lsp.buf.type_definition()
    end)
 
-   map("n", "<space>ra", function()
+   map("n", "<leader>ra", function()
       vim.lsp.buf.rename()
    end)
 
-   map("n", "<space>ca", function()
+   map("n", "<leader>ca", function()
       vim.lsp.buf.code_action()
    end)
 
@@ -145,7 +146,7 @@ M.lspconfig = function()
       vim.lsp.buf.references()
    end)
 
-   map("n", "<space>f", function()
+   map("n", "<leader>f", function()
       vim.diagnostic.open_float()
    end)
 
@@ -157,23 +158,23 @@ M.lspconfig = function()
       vim.diagnostic.goto_next()
    end)
 
-   map("n", "<space>q", function()
+   map("n", "<leader>q", function()
       vim.diagnostic.setloclist()
    end)
 
-   map("n", "<space>fm", function()
+   map("n", "<leader>fm", function()
       vim.lsp.buf.formatting()
    end)
 
-   map("n", "<space>wa", function()
+   map("n", "<leader>wa", function()
       vim.lsp.buf.add_workspace_folder()
    end)
 
-   map("n", "<space>wr", function()
+   map("n", "<leader>wr", function()
       vim.lsp.buf.remove_workspace_folder()
    end)
 
-   map("n", "<space>wl", function()
+   map("n", "<leader>wl", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
    end)
 end
@@ -193,6 +194,7 @@ M.telescope = function()
    map("n", "<leader>fw", "<cmd> :Telescope live_grep <CR>")
    map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>")
    map("n", "<leader>th", "<cmd> :Telescope themes <CR>")
+   map("n", "<leader>tk", "<cmd> :Telescope keymaps <CR>")
 
    -- pick a hidden term
    map("n", "<leader>W", "<cmd> :Telescope terms <CR>")
