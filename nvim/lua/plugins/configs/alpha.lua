@@ -72,7 +72,7 @@ options.buttons = {
    },
 }
 
-options = require("core.utils").load_override(options, "goolord/alpha-nvim")
+-- options = require("core.utils").load_override(options, "goolord/alpha-nvim")
 
 alpha.setup {
    layout = {
