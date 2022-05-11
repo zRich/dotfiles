@@ -1,16 +1,12 @@
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
-   use { "ravenxrz/DAPInstall.nvim" }
-
+return require('packer').startup(function(use)
    use { "fatih/molokai" }
 
    use {
       "prettier/vim-prettier",
       run = "yarn install",
    }
-
-   use { "fatih/vim-go" }
 
    use {
       "jose-elias-alvarez/null-ls.nvim",
@@ -42,7 +38,15 @@ return require('packer').startup(function()
       end,
    }
 
-   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+   use {
+     'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons',
+     setup = function ()
+       require("core.mappings").bufferline()
+     end,
+     config = function ()
+       require("plugins.configs.bufferline")
+     end,
+ }
 
    use {
       "lukas-reineke/indent-blankline.nvim",
@@ -51,6 +55,7 @@ return require('packer').startup(function()
          require("plugins.configs.others").blankline()
       end,
    }
+
    use {
       "nvim-treesitter/nvim-treesitter",
       event = { "BufRead", "BufNewFile" },
@@ -110,6 +115,37 @@ return require('packer').startup(function()
       setup = function()
          require("core.utils").packer_lazy_load "vim-matchup"
       end,
+   }
+
+   -- go lang
+   use {
+     "fatih/vim-go",
+     -- setup = function()
+     --   require("core.mappings").govim()
+     -- end
+   }
+
+   -- debug
+
+   use {
+     "mfussenegger/nvim-dap",
+   }
+
+   use {
+     "leoluz/nvim-dap-go",
+     config = function()
+       require("plugins.configs.dap")
+     end,
+     setup = function()
+       require("core.mappings").godebug()
+     end
+   }
+
+   use { "nvim-telescope/telescope-dap.nvim" }
+
+   use {
+     "rcarriga/nvim-dap-ui",
+     -- requires = {"mfussenegger/nvim-dap"},
    }
 
    use {
