@@ -37,13 +37,15 @@ dap.adapters.go = function(callback, _)
     end,
     300)
 end
+
 -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
 dap.configurations.go = {
   {
     type = "go",
-    name = "Debug",
+    name = "Launch Package",
     request = "launch",
-    program = "${file}"
+    program = "${file}",
+    showLog = true,
   },
   {
     type = "go",
