@@ -186,6 +186,7 @@ M.govim = function()
   map("n", "<F10>", "<cmd> require('dap').step_over()<CR>")
   map("n", "<F11>", "<cmd> require('dap').step_into()<CR>")
   map("n", "<F3>", "<cmd> :GoDebugStop <CR>")
+  cmd("let g:go_addtags_transform = 'camelcase'")
 end
 
 M.godebug = function()

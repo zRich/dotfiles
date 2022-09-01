@@ -133,9 +133,9 @@ return require('packer').startup(function(use)
   -- go lang
   use {
     "fatih/vim-go",
-    -- setup = function()
-    --   require("core.mappings").govim()
-    -- end
+    setup = function()
+      require("plugins.configs.go").vimgo()
+    end
   }
 
   -- debug
