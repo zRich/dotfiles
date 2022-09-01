@@ -103,11 +103,6 @@ M.bufferline = function()
    map("n", "<S-Tab>", "<cmd> :BufferLineCyclePrev <CR>")
 end
 
-M.comment = function()
-   map("n", "<leader>/", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>")
-   map("v", "<leader>/", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
-end
-
 M.lspconfig = function()
    -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
    map("n", "gD", function()

@@ -139,6 +139,13 @@ return require('packer').startup(function(use)
   }
 
   -- debug
+  use {
+    'sebdah/vim-delve'
+  }
+
+  -- use {
+  --   'puremourning/vimspector'
+  -- }
 
   use {
     "mfussenegger/nvim-dap",
@@ -237,17 +244,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "numToStr/Comment.nvim",
-    module = "Comment",
-    keys = { "gc", "gb" },
-
-    setup = function()
-      require("core.mappings").comment()
-    end,
-
-    config = function()
-      require("plugins.configs.others").comment()
-    end,
+    "tpope/vim-commentary"
   }
 
   -- file managing , picker etc

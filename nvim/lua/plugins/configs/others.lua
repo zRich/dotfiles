@@ -99,16 +99,6 @@ M.colorizer = function()
    vim.cmd "ColorizerReloadAllBuffers"
 end
 
-M.comment = function()
-   local present, nvim_comment = pcall(require, "Comment")
-
-   if not present then
-      return
-   end
-
-   nvim_comment.setup()
-end
-
 M.luasnip = function()
    local present, luasnip = pcall(require, "luasnip")
 
