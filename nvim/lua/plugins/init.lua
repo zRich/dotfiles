@@ -139,9 +139,9 @@ return require('packer').startup(function(use)
   }
 
   -- debug
-  use {
-    'sebdah/vim-delve'
-  }
+  -- use {
+  --   'sebdah/vim-delve'
+  -- }
 
   -- use {
   --   'puremourning/vimspector'
