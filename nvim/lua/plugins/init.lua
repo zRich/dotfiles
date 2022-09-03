@@ -43,13 +43,19 @@ return require('packer').startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
+
   use {
-    "feline-nvim/feline.nvim",
-    after = "nvim-web-devicons",
-    config = function()
-      require "plugins.configs.statusline"
-    end,
+    'vim-airline/vim-airline'
   }
+
+
+  -- use {
+  --   "feline-nvim/feline.nvim",
+  --   after = "nvim-web-devicons",
+  --   config = function()
+  --     require "plugins.configs.statusline"
+  --   end,
+  -- }
 
   use {
     'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons',
