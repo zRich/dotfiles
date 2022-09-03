@@ -1,7 +1,6 @@
 local opt = vim.opt
 local g = vim.g
 
--- g.go_addtags_transform = "camelcase"
 -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = 0
 g.do_filetype_lua = 1
@@ -30,7 +29,7 @@ opt.mouse = "a"
 -- Numbers
 opt.number = true
 opt.numberwidth = 2
-opt.relativenumber = false
+opt.relativenumber = true
 opt.ruler = false
 
 -- disable nvim intro
@@ -39,7 +38,7 @@ opt.shortmess:append "sI"
 opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
-opt.tabstop = 8
+opt.tabstop = 4
 opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true

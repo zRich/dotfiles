@@ -52,15 +52,6 @@ return require('packer').startup(function(use)
     'vim-airline/vim-airline-themes'
   }
 
-
-  -- use {
-  --   "feline-nvim/feline.nvim",
-  --   after = "nvim-web-devicons",
-  --   config = function()
-  --     require "plugins.configs.statusline"
-  --   end,
-  -- }
-
   use {
     'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons',
     setup = function()
