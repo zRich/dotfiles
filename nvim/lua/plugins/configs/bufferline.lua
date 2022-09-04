@@ -5,9 +5,9 @@ if not present then
 end
 
 vim.cmd [[
- -- function! Toggle_theme(a,b,c,d)
- --   lua require('base46').toggle_theme()
- -- endfunction
+ function! Toggle_theme(a,b,c,d)
+   lua require('base46').toggle_theme()
+ endfunction
 
  function! Quit_vim(a,b,c,d)
      qa
