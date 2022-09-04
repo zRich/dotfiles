@@ -54,7 +54,7 @@ local options = {
 }
 
 -- check for any override
-options = require("core.utils").load_override(options, "nvim-telescope/telescope.nvim")
+-- options = require("core.utils").load_override(options, "nvim-telescope/telescope.nvim")
 telescope.setup(options)
 
 -- load extensions

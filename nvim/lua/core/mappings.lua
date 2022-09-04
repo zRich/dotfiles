@@ -3,12 +3,7 @@ local utils = require "core.utils"
 local map = utils.map
 local cmd = vim.cmd
 local user_cmd = vim.api.nvim_create_user_command
-
--- This is a wrapper function made to disable a plugin mapping from chadrc
--- If keys are nil, false or empty string, then the mapping will be not applied
--- Useful when one wants to use that keymap for any other purpose
-
--- Don't copy the replaced text after pasting in visual mode
+-- move line & block
 map("n", "<S-Up>", ":m -2<CR>")
 map("n", "<S-Down>", ":m +2<CR>")
 map("v", "<S-Up>", ":'<,'>m -2<CR>gv=gv")
@@ -60,7 +55,6 @@ map("n", "<C-s>", "<cmd> :w <CR>") -- ctrl + s to save file
 map("t", { "jk" }, "<C-\\><C-n>")
 
 -- Add Packer commands because we are not loading it at startup
-
 local packer_cmd = function(callback)
    return function()
       require "plugins"
@@ -91,20 +85,15 @@ user_cmd("PackerStatus", packer_cmd "status", {})
 user_cmd("PackerSync", packer_cmd "sync", {})
 user_cmd("PackerUpdate", packer_cmd "update", {})
 
--- add NvChadUpdate command and mapping
--- cmd "silent! command! NvChadUpdate lua require('nvchad').update_nvchad()"
--- map("n", "<leader>uu", "<cmd> :NvChadUpdate <CR>")
-
--- load overriden misc mappings
-require("core.utils").load_config().mappings.misc()
-
 local M = {}
 
 -- below are all plugin related mappings
 
 M.bufferline = function()
-   map("n", "<TAB>", "<cmd> :BufferLineCycleNext <CR>")
-   map("n", "<S-Tab>", "<cmd> :BufferLineCyclePrev <CR>")
+   map("n", "<TAB>", ":bnext<CR>")
+   map("n", "<S-Tab>", ":bprevious<CR>")
+   -- map("n", "<TAB>", "<cmd> :BufferLineCycleNext <CR>")
+   -- map("n", "<S-Tab>", "<cmd> :BufferLineCyclePrev <CR>")
 end
 
 M.lspconfig = function()

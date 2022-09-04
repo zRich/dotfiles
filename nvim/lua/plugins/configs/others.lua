@@ -63,41 +63,41 @@ M.blankline = function()
       show_first_indent_level = false,
    }
 
-   options = require("core.utils").load_override(options, "lukas-reineke/indent-blankline.nvim")
+   -- options = require("core.utils").load_override(options, "lukas-reineke/indent-blankline.nvim")
    blankline.setup(options)
 end
 
-M.colorizer = function()
-   local present, colorizer = pcall(require, "colorizer")
+-- M.colorizer = function()
+--    local present, colorizer = pcall(require, "colorizer")
 
-   if not present then
-      return
-   end
+--    if not present then
+--       return
+--    end
 
-   local options = {
-      filetypes = {
-         "*",
-      },
-      user_default_options = {
-         RGB = true, -- #RGB hex codes
-         RRGGBB = true, -- #RRGGBB hex codes
-         names = false, -- "Name" codes like Blue
-         RRGGBBAA = false, -- #RRGGBBAA hex codes
-         rgb_fn = false, -- CSS rgb() and rgba() functions
-         hsl_fn = false, -- CSS hsl() and hsla() functions
-         css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-         css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+--    local options = {
+--       filetypes = {
+--          "*",
+--       },
+--       user_default_options = {
+--          RGB = true, -- #RGB hex codes
+--          RRGGBB = true, -- #RRGGBB hex codes
+--          names = false, -- "Name" codes like Blue
+--          RRGGBBAA = false, -- #RRGGBBAA hex codes
+--          rgb_fn = false, -- CSS rgb() and rgba() functions
+--          hsl_fn = false, -- CSS hsl() and hsla() functions
+--          css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+--          css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
 
-         -- Available modes: foreground, background
-         mode = "background", -- Set the display mode.
-      },
-   }
+--          -- Available modes: foreground, background
+--          mode = "background", -- Set the display mode.
+--       },
+--    }
 
-   options = require("core.utils").load_override(options, "NvChad/nvim-colorizer.lua")
+--    options = require("core.utils").load_override(options, "NvChad/nvim-colorizer.lua")
 
-   colorizer.setup(options["filetypes"], options["user_default_options"])
-   vim.cmd "ColorizerReloadAllBuffers"
-end
+--    colorizer.setup(options["filetypes"], options["user_default_options"])
+--    vim.cmd "ColorizerReloadAllBuffers"
+-- end
 
 M.luasnip = function()
    local present, luasnip = pcall(require, "luasnip")
@@ -139,7 +139,7 @@ M.signature = function()
       padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
    }
 
-   options = require("core.utils").load_override(options, "ray-x/lsp_signature.nvim")
+   -- options = require("core.utils").load_override(options, "ray-x/lsp_signature.nvim")
    lsp_signature.setup(options)
 end
 

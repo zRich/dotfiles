@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
 
   use {
     "kyazdani42/nvim-web-devicons",
-    -- after = "base46",
     config = function()
       require "plugins.configs.icons"
     end,
@@ -45,21 +44,26 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'vim-airline/vim-airline'
+    'vim-airline/vim-airline',
+    config = function ()
+      require('plugins.configs.airline')
+    end
   }
 
-  use {
-    'vim-airline/vim-airline-themes'
-  }
+  -- use {
+  --   'vim-airline/vim-airline-themes'
+  -- }
 
   use {
-    'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons',
-    setup = function()
-      require("core.mappings").bufferline()
-    end,
-    config = function()
-      require("plugins.configs.bufferline")
-    end,
+    'akinsho/bufferline.nvim',
+  tag = "v2.*",
+  requires = 'kyazdani42/nvim-web-devicons',
+  setup = function()
+    require("core.mappings").bufferline()
+  end,
+  -- config = function()
+  --   require("plugins.configs.bufferline")
+  -- end,
   }
 
   use {
@@ -178,7 +182,6 @@ return require('packer').startup(function(use)
   }
 
   -- load luasnips + cmp related in insert mode only
-
   use {
     "rafamadriz/friendly-snippets",
     module = "cmp_nvim_lsp",
@@ -238,7 +241,7 @@ return require('packer').startup(function(use)
 
   use {
     "goolord/alpha-nvim",
-    disable = true,
+    disable = false,
     config = function()
       require "plugins.configs.alpha"
     end,
