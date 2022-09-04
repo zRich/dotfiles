@@ -54,6 +54,14 @@ return require('packer').startup(function(use)
   --   'vim-airline/vim-airline-themes'
   -- }
 
+
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   config = function ()
+  --     require('plugins.configs.lualine').setup()
+  --   end
+  -- }
+
   use {
     'akinsho/bufferline.nvim',
   tag = "v2.*",
