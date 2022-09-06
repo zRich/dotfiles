@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
 
   use {
     'vim-airline/vim-airline',
-    config = function ()
+    config = function()
       require('plugins.configs.airline')
     end
   }
@@ -98,14 +98,14 @@ return require('packer').startup(function(use)
 
   use {
     'akinsho/bufferline.nvim',
-  tag = "v2.*",
-  requires = 'kyazdani42/nvim-web-devicons',
-  setup = function()
-    require("core.mappings").bufferline()
-  end,
-  config = function()
-    require("plugins.configs.bufferline")
-  end,
+    tag = "v2.*",
+    requires = 'kyazdani42/nvim-web-devicons',
+    setup = function()
+      require("core.mappings").bufferline()
+    end,
+    config = function()
+      require("plugins.configs.bufferline")
+    end,
   }
 
   use {
@@ -318,4 +318,19 @@ return require('packer').startup(function(use)
       require "plugins.configs.telescope"
     end,
   }
+
+
+  use {
+    'aklt/plantuml-syntax'
+  }
+
+  use {
+    'tyru/open-browser.vim'
+  }
+
+  use {
+    'weirongxu/plantuml-previewer.vim'
+  }
+
+
 end)
