@@ -94,12 +94,20 @@ return require('packer').startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   }
 
+
   use {
-    'vim-airline/vim-airline',
-    config = function()
-      require('plugins.configs.airline')
+    "nvim-lualine/lualine.nvim",
+    requires = {"kyazdani42/nvim-web-devicons"},
+    config = function ()
+      require("lualine").setup()
     end
   }
+  -- use {
+  --   'vim-airline/vim-airline',
+  --   config = function()
+  --     require('plugins.configs.airline')
+  --   end
+  -- }
 
   use {
     'akinsho/bufferline.nvim',
