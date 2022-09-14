@@ -36,6 +36,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use { "fatih/molokai" }
+  use {"morhetz/gruvbox"}
 
   use {
     "prettier/vim-prettier",
@@ -63,17 +64,17 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-      local saga = require("lspsaga")
+  -- use {
+  --   "glepnir/lspsaga.nvim",
+  --   branch = "main",
+  --   config = function()
+  --     local saga = require("lspsaga")
 
-      saga.init_lsp_saga({
-        -- your configuration
-      })
-    end,
-  }
+  --     saga.init_lsp_saga({
+  --       -- your configuration
+  --     })
+  --   end,
+  -- }
 
   use {
     'stevearc/aerial.nvim',
@@ -95,19 +96,20 @@ return require('packer').startup(function(use)
   }
 
 
-  use {
-    "nvim-lualine/lualine.nvim",
-    requires = {"kyazdani42/nvim-web-devicons"},
-    config = function ()
-      require("lualine").setup()
-    end
-  }
   -- use {
-  --   'vim-airline/vim-airline',
-  --   config = function()
-  --     require('plugins.configs.airline')
+  --   "nvim-lualine/lualine.nvim",
+  --   requires = {"kyazdani42/nvim-web-devicons"},
+  --   config = function ()
+  --     require("lualine").setup()
   --   end
   -- }
+
+  use {
+    'vim-airline/vim-airline',
+    -- config = function()
+    --   require('plugins.configs.airline')
+    -- end
+  }
 
   use {
     'akinsho/bufferline.nvim',
