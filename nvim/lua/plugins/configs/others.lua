@@ -32,7 +32,7 @@ M.better_escape = function()
       keys = "<Esc>",
    }
 
-   options = require("core.utils").load_override(options, "max397574/better-escape.nvim")
+   -- options = require("core.utils").load_override(options, "max397574/better-escape.nvim")
    escape.setup(options)
 end
 

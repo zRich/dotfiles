@@ -63,6 +63,23 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      local saga = require("lspsaga")
+
+      saga.init_lsp_saga({
+        -- your configuration
+      })
+    end,
+  }
+
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup() end
+  }
+
   -- markdown
   use {
     'godlygeek/tabular',
@@ -83,18 +100,6 @@ return require('packer').startup(function(use)
       require('plugins.configs.airline')
     end
   }
-
-  -- use {
-  --   'vim-airline/vim-airline-themes'
-  -- }
-
-
-  -- use {
-  --   'nvim-lualine/lualine.nvim',
-  --   config = function ()
-  --     require('plugins.configs.lualine').setup()
-  --   end
-  -- }
 
   use {
     'akinsho/bufferline.nvim',
@@ -140,32 +145,21 @@ return require('packer').startup(function(use)
   -- lsp stuff
 
   use {
-    "williamboman/nvim-lsp-installer",
-    opt = true,
-    setup = function()
-      require("core.utils").packer_lazy_load "nvim-lsp-installer"
-      -- reload the current file so lsp actually starts for it
-      vim.defer_fn(function()
-        vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-      end, 0)
-    end,
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup()
+    end
   }
+
+  use {
+    'williamboman/mason-lspconfig.nvim'
+  }
+
 
   use {
     "neovim/nvim-lspconfig",
-    after = "nvim-lsp-installer",
-    module = "lspconfig",
     config = function()
-      require "plugins.configs.lsp_installer"
       require "plugins.configs.lspconfig"
-    end,
-  }
-
-  use {
-    "ray-x/lsp_signature.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("plugins.configs.others").signature()
     end,
   }
 
@@ -185,14 +179,22 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- debug
+  -- color
   -- use {
-  --   'sebdah/vim-delve'
+  --   "tjdevries/colorbuddy.nvim"
+  -- }
+  -- use {
+  --   "svrana/neosolarized.nvim",
+  --   -- "tjdevries/gruvbuddy.nvim",
+  --   -- 'Th3Whit3Wolf/onebuddy',
+  --   config = function ()
+  --     require('plugins.configs.color')
+  --   end
   -- }
 
-  -- use {
-  --   'puremourning/vimspector'
-  -- }
+  use {
+    'norcalli/nvim-colorizer.lua'
+  }
 
   use {
     "mfussenegger/nvim-dap",
@@ -272,6 +274,9 @@ return require('packer').startup(function(use)
     after = "cmp-buffer",
   }
 
+  use {
+    "onsails/lspkind-nvim"
+  }
   -- misc plugins
   use {
     "windwp/nvim-autopairs",
@@ -331,6 +336,5 @@ return require('packer').startup(function(use)
   use {
     'weirongxu/plantuml-previewer.vim'
   }
-
 
 end)

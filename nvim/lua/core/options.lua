@@ -83,5 +83,12 @@ vim.schedule(function()
    vim.cmd [[ silent! rsh ]]
 end)
 
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = 'pum'
+vim.opt.pumblend = 5
+vim.opt.background = 'dark'
+
 -- load user options if the file exists
 -- require("core.utils").load_config().options.user()
