@@ -39,7 +39,7 @@ opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 4
--- opt.termguicolors = true
+opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
 
@@ -52,7 +52,6 @@ opt.whichwrap:append "<>[]hl"
 g.mapleader = " "
 
 -- disable some builtin vim plugins
-
 local default_plugins = {
    "2html_plugin",
    "getscript",
@@ -89,6 +88,3 @@ vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
 vim.opt.pumblend = 5
 vim.opt.background = 'dark'
-
--- load user options if the file exists
--- require("core.utils").load_config().options.user()

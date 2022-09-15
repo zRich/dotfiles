@@ -10,7 +10,7 @@ map("v", "<S-Up>", ":'<,'>m -2<CR>gv=gv")
 map("v", "<S-Down>", ":'<,'>m +2<CR>gv=gv")
 
 -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
-map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true })
+-- map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true })
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http<cmd> ://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 -- empty mode is same as using <cmd> :map

@@ -96,20 +96,21 @@ return require('packer').startup(function(use)
   }
 
 
-  -- use {
-  --   "nvim-lualine/lualine.nvim",
-  --   requires = {"kyazdani42/nvim-web-devicons"},
-  --   config = function ()
-  --     require("lualine").setup()
-  --   end
-  -- }
-
   use {
-    'vim-airline/vim-airline',
+     "nvim-lualine/lualine.nvim",
+     requires = {"kyazdani42/nvim-web-devicons", opt = true},
+     config = function ()
+       require("lualine").setup()
+     end
+  }
+
+  -- use {'feline-nvim/feline.nvim'}
+  -- use {
+  --   'vim-airline/vim-airline',
     -- config = function()
     --   require('plugins.configs.airline')
     -- end
-  }
+  -- }
 
   use {
     'akinsho/bufferline.nvim',
@@ -296,13 +297,13 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
-    "goolord/alpha-nvim",
-    disable = false,
-    config = function()
-      require "plugins.configs.alpha"
-    end,
-  }
+  -- use {
+  --   "goolord/alpha-nvim",
+  --   disable = false,
+  --   config = function()
+  --     require "plugins.configs.alpha"
+  --   end,
+  -- }
 
   use {
     "tpope/vim-commentary"
