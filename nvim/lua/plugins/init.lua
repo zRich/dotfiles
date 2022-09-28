@@ -36,7 +36,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use { "fatih/molokai" }
-  use {"morhetz/gruvbox"}
+  use { "morhetz/gruvbox" }
 
   use {
     "prettier/vim-prettier",
@@ -78,7 +78,9 @@ return require('packer').startup(function(use)
 
   use {
     'stevearc/aerial.nvim',
-    config = function() require('aerial').setup() end
+    config = function()
+      require('aerial').setup()
+    end
   }
 
   -- markdown
@@ -97,19 +99,19 @@ return require('packer').startup(function(use)
 
 
   use {
-     "nvim-lualine/lualine.nvim",
-     requires = {"kyazdani42/nvim-web-devicons", opt = true},
-     config = function ()
-       require("lualine").setup()
-     end
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    config = function()
+      require("lualine").setup()
+    end
   }
 
   -- use {'feline-nvim/feline.nvim'}
   -- use {
   --   'vim-airline/vim-airline',
-    -- config = function()
-    --   require('plugins.configs.airline')
-    -- end
+  -- config = function()
+  --   require('plugins.configs.airline')
+  -- end
   -- }
 
   use {
@@ -226,6 +228,9 @@ return require('packer').startup(function(use)
   use {
     "rcarriga/nvim-dap-ui",
     -- requires = {"mfussenegger/nvim-dap"},
+    config = function ()
+      require("plugins.configs.dap-ui")
+    end
   }
 
   use {

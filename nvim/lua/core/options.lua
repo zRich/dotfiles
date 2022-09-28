@@ -22,7 +22,7 @@ opt.smartindent = true
 opt.fillchars = { eob = " " }
 
 opt.hidden = true
-opt.ignorecase = true
+opt.ignorecase = false
 opt.smartcase = true
 opt.mouse = "a"
 
@@ -33,7 +33,7 @@ opt.relativenumber = true
 opt.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+-- opt.shortmess:append "sI"
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
