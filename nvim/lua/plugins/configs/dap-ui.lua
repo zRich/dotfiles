@@ -29,7 +29,7 @@ require("dapui").setup({
         "watches",
       },
       size = 40, -- 40 columns
-      position = "right",
+      position = "left",
     },
     {
       elements = {
