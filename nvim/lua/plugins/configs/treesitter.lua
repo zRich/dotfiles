@@ -10,7 +10,6 @@ local options = {
       "vim",
       "go"
    },
-   -- ensure_installed = "all",
    highlight = {
       enable = true,
       use_languagetree = true,
