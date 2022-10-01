@@ -1,7 +1,7 @@
-local present, dap= pcall(require, "dap")
+local present, dap = pcall(require, "dap")
 
 if not present then
-   return
+  return
 end
 
 dap.adapters.go = function(callback, _)
@@ -10,8 +10,8 @@ dap.adapters.go = function(callback, _)
   local pid_or_err
   local port = 38697
   local opts = {
-    stdio = {nil, stdout},
-    args = {"dap", "-l", "127.0.0.1:" .. port},
+    stdio = { nil, stdout },
+    args = { "dap", "-l", "127.0.0.1:" .. port },
     detached = true
   }
   handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
@@ -33,7 +33,7 @@ dap.adapters.go = function(callback, _)
   -- Wait for delve to start
   vim.defer_fn(
     function()
-      callback({type = "server", host = "127.0.0.1", port = port})
+      callback({ type = "server", host = "127.0.0.1", port = port })
     end,
     300)
 end
@@ -52,6 +52,7 @@ dap.configurations.go = {
     name = "Debug test", -- configuration for debugging test files
     request = "launch",
     mode = "test",
+    showLog = true,
     program = "${file}"
   },
   {
@@ -59,6 +60,8 @@ dap.configurations.go = {
     name = "Debug test (go.mod)",
     request = "launch",
     mode = "test",
+    showLog = true,
+    flags = {"-v"},
     program = "./${relativeFileDirname}"
   }
 }

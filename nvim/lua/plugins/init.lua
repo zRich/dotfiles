@@ -127,6 +127,14 @@ return require('packer').startup(function(use)
   }
 
   use {
+    "akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function()
+      require("plugins.configs.terminal").setup()
+    end
+  }
+
+  use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
     config = function()
@@ -228,7 +236,7 @@ return require('packer').startup(function(use)
   use {
     "rcarriga/nvim-dap-ui",
     -- requires = {"mfussenegger/nvim-dap"},
-    config = function ()
+    config = function()
       require("plugins.configs.dap-ui")
     end
   }
