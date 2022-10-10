@@ -126,13 +126,13 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = '*',
-    config = function()
-      require("plugins.configs.terminal").setup()
-    end
-  }
+  -- use {
+  --   "akinsho/toggleterm.nvim",
+  --   tag = '*',
+  --   config = function()
+  --     require("plugins.configs.terminal").setup()
+  --   end
+  -- }
 
   use {
     "lukas-reineke/indent-blankline.nvim",
