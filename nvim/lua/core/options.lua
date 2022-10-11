@@ -7,7 +7,7 @@ opt.confirm = true
 opt.laststatus = 3 -- global statusline
 opt.title = true
 opt.clipboard = "unnamedplus"
-opt.cmdheight = 1
+opt.cmdheight = 2
 opt.cul = true -- cursor line
 
 -- Indentline
@@ -18,7 +18,7 @@ opt.smartindent = true
 -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
 opt.fillchars = { eob = " " }
 
-opt.hidden = true
+-- opt.hidden = true
 opt.ignorecase = false
 opt.smartcase = true
 opt.mouse = "a"
@@ -29,55 +29,20 @@ opt.numberwidth = 2
 opt.relativenumber = true
 opt.ruler = false
 
--- disable nvim intro
--- opt.shortmess:append "sI"
-
 opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 4
 opt.termguicolors = true
-opt.timeoutlen = 400
 opt.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 250
+opt.updatetime = 500
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
 g.mapleader = " "
-
--- disable some builtin vim plugins
-local default_plugins = {
-   "2html_plugin",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
-}
-
-for _, plugin in pairs(default_plugins) do
-   g["loaded_" .. plugin] = 1
-end
-
-vim.schedule(function()
-   vim.opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"
-   vim.cmd [[ silent! rsh ]]
-end)
 
 vim.opt.cursorline = true
 vim.opt.termguicolors = true

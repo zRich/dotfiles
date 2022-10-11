@@ -151,8 +151,8 @@ M.lspconfig = function()
    end)
 
    map("n", "<leader>fm", function()
-      -- vim.lsp.buf.format()
-      vim.lsp.buf.formatting()
+      vim.lsp.buf.format{async = true}
+      -- vim.lsp.buf.formatting()
    end)
 
    map("n", "<leader>wa", function()
