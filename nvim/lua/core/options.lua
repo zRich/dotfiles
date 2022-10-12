@@ -1,48 +1,44 @@
-local opt = vim.opt
-local g = vim.g
+vim.g.toggle_theme_icon = "   "
 
-g.toggle_theme_icon = "   "
-
-opt.confirm = true
-opt.laststatus = 3 -- global statusline
-opt.title = true
-opt.clipboard = "unnamedplus"
-opt.cmdheight = 2
-opt.cul = true -- cursor line
+vim.opt.confirm = true
+vim.opt.laststatus = 3 -- global statusline
+vim.opt.title = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cmdheight = 1
+vim.opt.cul = true -- cursor line
 
 -- Indentline
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
 
 -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-opt.fillchars = { eob = " " }
+vim.opt.fillchars = { eob = " " }
 
--- opt.hidden = true
-opt.ignorecase = false
-opt.smartcase = true
-opt.mouse = "a"
+vim.opt.ignorecase = false
+vim.opt.smartcase = true
+vim.opt.mouse = "a"
 
 -- Numbers
-opt.number = true
-opt.numberwidth = 2
-opt.relativenumber = true
-opt.ruler = false
+vim.opt.number = true
+vim.opt.numberwidth = 2
+vim.opt.relativenumber = true
+vim.opt.ruler = false
 
-opt.signcolumn = "yes"
-opt.splitbelow = true
-opt.splitright = true
-opt.tabstop = 4
-opt.termguicolors = true
-opt.undofile = true
+vim.opt.signcolumn = "yes"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 500
+vim.opt.updatetime = 500
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
-g.mapleader = " "
+vim.opt.whichwrap:append "<>[]hl"
+vim.g.mapleader = " "
 
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
