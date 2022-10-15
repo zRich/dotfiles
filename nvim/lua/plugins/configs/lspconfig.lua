@@ -53,7 +53,7 @@ lspconfig.sumneko_lua.setup {
    },
 }
 
-local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls' }
+local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls', 'tailwindcss' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = M.on_attach,
