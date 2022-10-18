@@ -202,30 +202,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- use {
-  --   "windwp/nvim-ts-autotag",
-  --   -- config = function ()
-  --   --   require("plugins.configs.ts-autotag")
-  --   -- end
-  -- }
-
-  -- color
-  -- use {
-  --   "tjdevries/colorbuddy.nvim"
-  -- }
-  -- use {
-  --   "svrana/neosolarized.nvim",
-  --   -- "tjdevries/gruvbuddy.nvim",
-  --   -- 'Th3Whit3Wolf/onebuddy',
-  --   config = function ()
-  --     require('plugins.configs.color')
-  --   end
-  -- }
-
-  use {
-    'norcalli/nvim-colorizer.lua'
-  }
-
   use {
     "mfussenegger/nvim-dap",
   }
@@ -248,14 +224,6 @@ return require('packer').startup(function(use)
     config = function()
       require("plugins.configs.dap-ui")
     end
-  }
-
-  use {
-    "max397574/better-escape.nvim",
-    event = "InsertCharPre",
-    config = function()
-      require("plugins.configs.others").better_escape()
-    end,
   }
 
   -- load luasnips + cmp related in insert mode only
@@ -318,14 +286,6 @@ return require('packer').startup(function(use)
       require("plugins.configs.others").autopairs()
     end,
   }
-
-  -- use {
-  --   "goolord/alpha-nvim",
-  --   disable = false,
-  --   config = function()
-  --     require "plugins.configs.alpha"
-  --   end,
-  -- }
 
   use {
     "tpope/vim-commentary"

@@ -18,24 +18,6 @@ M.autopairs = function()
    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
-M.better_escape = function()
-   local present, escape = pcall(require, "better_escape")
-
-   if not present then
-      return
-   end
-
-   local options = {
-      mapping = { "jk" }, -- a table with mappings to use
-      timeout = vim.o.timeoutlen,
-      clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-      keys = "<Esc>",
-   }
-
-   -- options = require("core.utils").load_override(options, "max397574/better-escape.nvim")
-   escape.setup(options)
-end
-
 M.blankline = function()
    local present, blankline = pcall(require, "indent_blankline")
 
@@ -67,37 +49,37 @@ M.blankline = function()
    blankline.setup(options)
 end
 
--- M.colorizer = function()
---    local present, colorizer = pcall(require, "colorizer")
+M.colorizer = function()
+   local present, colorizer = pcall(require, "colorizer")
 
---    if not present then
---       return
---    end
+   if not present then
+      return
+   end
 
---    local options = {
---       filetypes = {
---          "*",
---       },
---       user_default_options = {
---          RGB = true, -- #RGB hex codes
---          RRGGBB = true, -- #RRGGBB hex codes
---          names = false, -- "Name" codes like Blue
---          RRGGBBAA = false, -- #RRGGBBAA hex codes
---          rgb_fn = false, -- CSS rgb() and rgba() functions
---          hsl_fn = false, -- CSS hsl() and hsla() functions
---          css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
---          css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+   local options = {
+      filetypes = {
+         "*",
+      },
+      user_default_options = {
+         RGB = true, -- #RGB hex codes
+         RRGGBB = true, -- #RRGGBB hex codes
+         names = false, -- "Name" codes like Blue
+         RRGGBBAA = false, -- #RRGGBBAA hex codes
+         rgb_fn = false, -- CSS rgb() and rgba() functions
+         hsl_fn = false, -- CSS hsl() and hsla() functions
+         css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+         css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
 
---          -- Available modes: foreground, background
---          mode = "background", -- Set the display mode.
---       },
---    }
+         -- Available modes: foreground, background
+         mode = "background", -- Set the display mode.
+      },
+   }
 
---    options = require("core.utils").load_override(options, "NvChad/nvim-colorizer.lua")
+   -- options = require("core.utils").load_override(options, "NvChad/nvim-colorizer.lua")
 
---    colorizer.setup(options["filetypes"], options["user_default_options"])
---    vim.cmd "ColorizerReloadAllBuffers"
--- end
+   colorizer.setup(options["filetypes"], options["user_default_options"])
+   vim.cmd "ColorizerReloadAllBuffers"
+end
 
 M.luasnip = function()
    local present, luasnip = pcall(require, "luasnip")
