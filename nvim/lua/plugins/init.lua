@@ -126,13 +126,13 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- use {
-  --   "akinsho/toggleterm.nvim",
-  --   tag = '*',
-  --   config = function()
-  --     require("plugins.configs.terminal").setup()
-  --   end
-  -- }
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function()
+      require("plugins.configs.terminal").setup()
+    end
+  }
 
   use {
     "lukas-reineke/indent-blankline.nvim",
@@ -145,8 +145,8 @@ return require('packer').startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "BufNewFile" },
-    run = function ()
-      require("nvim-treesitter.install").update({with_sync = true})
+    run = function()
+      require("nvim-treesitter.install").update({ with_sync = true })
     end,
     config = function()
       require "plugins.configs.treesitter"
