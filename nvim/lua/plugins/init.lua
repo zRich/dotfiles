@@ -130,7 +130,7 @@ return require('packer').startup(function(use)
     "akinsho/toggleterm.nvim",
     tag = '*',
     config = function()
-      require("plugins.configs.terminal").setup()
+      require("plugins.configs.terminal")
     end
   }
 

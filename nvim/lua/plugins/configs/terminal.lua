@@ -1,4 +1,10 @@
-require("toggleterm").setup {
+local present, toggleterm = pcall(require, "toggleterm")
+
+if not present then
+   return
+end
+
+local options = {
   -- size can be a number or function which is passed the current terminal
   -- size = 20,
   function(term)
@@ -64,3 +70,5 @@ require("toggleterm").setup {
     end
   },
 }
+
+toggleterm.setup(options)
