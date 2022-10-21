@@ -64,18 +64,6 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- use {
-  --   "glepnir/lspsaga.nvim",
-  --   branch = "main",
-  --   config = function()
-  --     local saga = require("lspsaga")
-
-  --     saga.init_lsp_saga({
-  --       -- your configuration
-  --     })
-  --   end,
-  -- }
-
   use {
     'stevearc/aerial.nvim',
     config = function()
@@ -102,17 +90,9 @@ return require('packer').startup(function(use)
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function()
-      require("lualine").setup()
+      require("plugins.configs.lualine")
     end
   }
-
-  -- use {'feline-nvim/feline.nvim'}
-  -- use {
-  --   'vim-airline/vim-airline',
-  -- config = function()
-  --   require('plugins.configs.airline')
-  -- end
-  -- }
 
   use {
     'akinsho/bufferline.nvim',
