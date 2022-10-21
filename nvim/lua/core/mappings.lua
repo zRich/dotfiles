@@ -1,7 +1,6 @@
 local utils = require "core.utils"
 
 local map = utils.map
-local cmd = vim.cmd
 local user_cmd = vim.api.nvim_create_user_command
 -- move line & block
 map("n", "<S-Up>", ":m -2<CR>")
