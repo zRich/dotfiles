@@ -53,6 +53,12 @@ lspconfig.sumneko_lua.setup {
    },
 }
 
+lspconfig.tailwindcss.setup {
+  on_attach = M.on_attach,
+  capabilities = capabilities,
+  filetypes = {"typescript", "typescriptreact", "typescript.tsx"}
+}
+
 local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls', 'tailwindcss' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
@@ -61,7 +67,7 @@ for _, lsp in pairs(servers) do
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
-    }
+    },
   }
 end
 
