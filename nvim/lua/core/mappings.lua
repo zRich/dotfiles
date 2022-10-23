@@ -226,6 +226,7 @@ M.telescope = function()
    map("n", "<leader>tk", "<cmd> :Telescope keymaps <CR>")
 end
 
-map("n", "<leader>tb", "<cmd> :TagbarToggle <CR>")
+map("n", "<leader>to", "<cmd> :TagbarToggle <CR>")
+map("n", "<leader>tc", "<cmd> :TagbarClose <CR>")
 
 return M
