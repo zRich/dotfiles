@@ -145,6 +145,10 @@ return require('packer').startup(function(use)
     end,
   }
 
+
+  use {
+    "preservim/tagbar",
+  }
   -- lsp stuff
 
   use {

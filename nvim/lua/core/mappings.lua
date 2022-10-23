@@ -1,6 +1,21 @@
-local utils = require "core.utils"
+local function map(mode, keys, command, opt)
+   -- local options = { silent = true }
+   local options = { noremap = true, silent = true }
 
-local map = utils.map
+   if opt then
+      options = vim.tbl_extend("force", options, opt)
+   end
+
+   if type(keys) == "table" then
+      for _, keymap in ipairs(keys) do
+         map(mode, keymap, command, opt)
+      end
+      return
+   end
+
+   vim.keymap.set(mode, keys, command, opt)
+end
+
 local user_cmd = vim.api.nvim_create_user_command
 -- move line & block
 map("n", "<S-Up>", ":m -2<CR>")
@@ -210,5 +225,7 @@ M.telescope = function()
    map("n", "<leader>th", "<cmd> :Telescope themes <CR>")
    map("n", "<leader>tk", "<cmd> :Telescope keymaps <CR>")
 end
+
+map("n", "<leader>tb", "<cmd> :TagbarToggle <CR>")
 
 return M
