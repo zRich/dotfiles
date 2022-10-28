@@ -165,7 +165,7 @@ return require('packer').startup(function(use)
     config = function()
       require "plugins.configs.lspconfig"
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").lspconfig()
     end
   }
