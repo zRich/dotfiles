@@ -140,9 +140,6 @@ return require('packer').startup(function(use)
     config = function()
       require("plugins.configs.others").gitsigns()
     end,
-    setup = function()
-      require("core.utils").packer_lazy_load "gitsigns.nvim"
-    end,
   }
 
 
@@ -168,14 +165,14 @@ return require('packer').startup(function(use)
     config = function()
       require "plugins.configs.lspconfig"
     end,
+    setup = function ()
+      require("core.mappings").lspconfig()
+    end
   }
 
   use {
     "andymass/vim-matchup",
     opt = true,
-    setup = function()
-      require("core.utils").packer_lazy_load "vim-matchup"
-    end,
   }
 
   -- go lang
@@ -204,7 +201,6 @@ return require('packer').startup(function(use)
 
   use {
     "rcarriga/nvim-dap-ui",
-    -- requires = {"mfussenegger/nvim-dap"},
     config = function()
       require("plugins.configs.dap-ui")
     end

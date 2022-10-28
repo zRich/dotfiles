@@ -45,7 +45,6 @@ M.blankline = function()
       show_first_indent_level = false,
    }
 
-   -- options = require("core.utils").load_override(options, "lukas-reineke/indent-blankline.nvim")
    blankline.setup(options)
 end
 
@@ -74,8 +73,6 @@ M.colorizer = function()
          mode = "background", -- Set the display mode.
       },
    }
-
-   -- options = require("core.utils").load_override(options, "NvChad/nvim-colorizer.lua")
 
    colorizer.setup(options["filetypes"], options["user_default_options"])
    vim.cmd "ColorizerReloadAllBuffers"

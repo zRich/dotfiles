@@ -8,12 +8,12 @@ local M = {}
 
 require("plugins.configs.others").lsp_handlers()
 
-function M.on_attach(client, _)
-   -- client.resolved_capabilities.document_formatting = false
-   -- client.resolved_capabilities.document_range_formatting = false
+-- function M.on_attach(client, _)
+--    -- client.resolved_capabilities.document_formatting = false
+--    -- client.resolved_capabilities.document_range_formatting = false
 
-   require("core.mappings").lspconfig()
-end
+--    require("core.mappings").lspconfig()
+-- end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
@@ -33,7 +33,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 lspconfig.sumneko_lua.setup {
-   on_attach = M.on_attach,
+   -- on_attach = M.on_attach,
    capabilities = capabilities,
 
    settings = {
@@ -54,7 +54,7 @@ lspconfig.sumneko_lua.setup {
 }
 
 lspconfig.tailwindcss.setup {
-  on_attach = M.on_attach,
+  -- on_attach = M.on_attach,
   capabilities = capabilities,
   filetypes = {"typescript", "typescriptreact", "typescript.tsx"}
 }
@@ -62,7 +62,7 @@ lspconfig.tailwindcss.setup {
 local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls', 'tailwindcss' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
-    on_attach = M.on_attach,
+    -- on_attach = M.on_attach,
     capabilities = capabilities,
     flags = {
       -- This will be the default in neovim 0.7+
@@ -70,12 +70,5 @@ for _, lsp in pairs(servers) do
     },
   }
 end
-
--- requires a file containing user's lspconfigs
--- local addlsp_confs = require("core.utils").load_config().plugins.options.lspconfig.setup_lspconf
-
--- if #addlsp_confs ~= 0 then
---    require(addlsp_confs).setup_lsp(M.on_attach, capabilities)
--- end
 
 return M
