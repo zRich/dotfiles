@@ -59,7 +59,7 @@ lspconfig.tailwindcss.setup {
   filetypes = {"typescript", "typescriptreact", "typescript.tsx"}
 }
 
-local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls', 'tailwindcss' }
+local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls'}
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     -- on_attach = M.on_attach,
