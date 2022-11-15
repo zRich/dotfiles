@@ -1,10 +1,5 @@
-local present, treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not present then
-  return
-end
-
 local options = {
+  auto_install = true,
   ensure_installed = {
     "lua",
     "vim",
@@ -22,8 +17,12 @@ local options = {
   },
   autotag = {
     enable = true,
+    filetypes = {
+      'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+      'css', 'lua', 'xml', 'php', 'markdown'
+    },
   },
   indent = { enable = true },
 }
 
-treesitter.setup(options)
+require('nvim-treesitter.configs').setup(options)

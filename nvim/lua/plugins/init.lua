@@ -124,12 +124,16 @@ return require('packer').startup(function(use)
 
   use {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufRead", "BufNewFile" },
-    run = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-    end,
+    -- event = { "BufRead", "BufNewFile" },
+    -- run = function()
+    --   require("nvim-treesitter.install").update({ with_sync = true })
+    -- end,
+  }
+
+  use {
+    "windwp/nvim-ts-autotag",
     config = function()
-      require "plugins.configs.treesitter"
+      require("plugins.configs.treesitter")
     end,
   }
 
