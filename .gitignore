@@ -31,7 +31,6 @@
 .ssh
 .sudo_as_admin_successful
 .tmux
-.tmux.conf
 .vim
 .viminfo
 .vscode-server
