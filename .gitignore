@@ -59,5 +59,4 @@ tools
 world.js
 hardhat-nodejs
 dlv
-go
 .config/nvim/plugin/packer_compiled.lua
