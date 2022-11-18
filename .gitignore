@@ -1,6 +1,6 @@
 # git hub ignore file 
 
-!.config
+.[a-z]*
 !.tmux.conf
 !.zshrc
 !.zshenv
@@ -8,9 +8,9 @@
 !LICENSE
 !.gitignore
 !.config/nvim
-.[a-z]*
 !.zshenv
 !.zshrc
+
 Applications
 Desktop
 Documents
