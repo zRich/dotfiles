@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
       require("plugins.configs.null-ls").setup()
     end,
   }
+
   use { "nvim-lua/plenary.nvim" }
   use { "lewis6991/impatient.nvim" }
 
@@ -267,8 +268,16 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "tpope/vim-commentary"
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+      require('plugins.configs.comment')
+    end
   }
+
+  -- use {
+  --   "tpope/vim-commentary"
+  -- }
 
   -- file managing , picker etc
   use {

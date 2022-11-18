@@ -9,8 +9,6 @@ local M = {}
 require("plugins.configs.others").lsp_handlers()
 
 function M.on_attach(client, bufnr)
-  -- client.resolved_capabilities.document_formatting = false
-  -- client.resolved_capabilities.document_range_formatting = false
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   require("core.mappings").lspconfig()
 end
@@ -59,7 +57,7 @@ lspconfig.tailwindcss.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "mdx" }
 }
 
-local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls' }
+local servers = { 'gopls', 'rust_analyzer', 'tsserver', 'astro', 'bufls', 'bashls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = M.on_attach,

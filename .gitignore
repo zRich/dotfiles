@@ -1,4 +1,4 @@
-*
+# git hub ignore file 
 
 !.config
 !.tmux.conf
@@ -7,3 +7,24 @@
 !README.md
 !LICENSE
 !.gitignore
+!.config/nvim
+.[a-z]*
+!.zshenv
+!.zshrc
+Applications
+Desktop
+Documents
+Downloads
+LICENSE
+Library
+Movies
+Music
+Pictures
+Public
+README.md
+VirtualBox VMs
+Zotero
+go
+go-vim
+powerlevel10k
+repo

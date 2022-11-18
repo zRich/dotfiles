@@ -4,7 +4,7 @@ local b = null_ls.builtins
 local sources = {
 
   b.formatting.prettier.with {
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "yaml", "markdown", "graphql" },
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "yaml", "markdown", "graphql", "sh" },
     extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
   -- b.formatting.deno_fmt,
 
