@@ -37,10 +37,10 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use { "morhetz/gruvbox" }
 
-  use {
+  --[[ use {
     "prettier/vim-prettier",
     run = "yarn install",
-  }
+  } ]]
 
   use {
     "jose-elias-alvarez/null-ls.nvim",

@@ -8,7 +8,7 @@ local M = {}
 
 require("plugins.configs.others").lsp_handlers()
 
-function M.on_attach(client, bufnr)
+function M.on_attach(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   require("core.mappings").lspconfig()
 end
