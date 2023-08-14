@@ -1,4 +1,4 @@
 require "core.options"
 require "core.mappings"
 require "plugins"
-vim.cmd('colorscheme oceanic')
+vim.cmd('colorscheme vscode')

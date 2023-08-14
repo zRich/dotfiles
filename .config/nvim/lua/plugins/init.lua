@@ -45,7 +45,8 @@ return require('packer').startup({
     use { "morhetz/gruvbox" }
     use { 'kaicataldo/material.vim' }
     use { "bluz71/vim-nightfly-colors", as = "nightfly" }
-
+    -- Packer:
+    use 'Mofiqul/vscode.nvim'
     use { 'ray-x/starry.nvim', setup = function()
       vim.g.starry_italic_comments = true
     end }
