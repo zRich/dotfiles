@@ -112,3 +112,16 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.sdkman/bin/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh
+
+export PATH=$PATH:/usr/local/go/bin
+
+# unset http & https proxy
+# unset http_proxy
+# unset https_proxy
+# unset HTTP_PROXY
+# unset HTTPS_PROXY
+
+export GOPATH=$HOME/go 
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+

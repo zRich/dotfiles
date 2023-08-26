@@ -34,14 +34,10 @@ vim.cmd [[packadd packer.nvim]]
 --   module_pattern = string/list -- Specifies Lua pattern of Lua module names for require. When requiring a string which matches one of these patterns, the plugin will be loaded.
 -- }
 
-require('packer').init({
-  git = {
-    default_url_format = 'git@github.com:%s'
-  }
-})
-
 return require('packer').startup({
   function(use)
+
+    use {"github/copilot.vim"}
     use { "morhetz/gruvbox" }
     use { 'kaicataldo/material.vim' }
     use { "bluz71/vim-nightfly-colors", as = "nightfly" }

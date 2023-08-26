@@ -58,7 +58,7 @@ local options = {
          behavior = cmp.ConfirmBehavior.Replace,
          select = true,
       },
-      ["<Tab>"] = cmp.mapping(function(fallback)
+      ["<C-Tab>"] = cmp.mapping(function(fallback)
          if cmp.visible() then
             cmp.select_next_item()
          elseif require("luasnip").expand_or_jumpable() then
