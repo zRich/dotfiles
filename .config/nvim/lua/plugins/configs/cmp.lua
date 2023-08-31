@@ -49,7 +49,7 @@ local options = {
    },
    mapping = {
       ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
+      -- ["<C-n>"] = cmp.mapping.select_next_item(),
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
@@ -58,7 +58,7 @@ local options = {
          behavior = cmp.ConfirmBehavior.Replace,
          select = true,
       },
-      ["<C-Tab>"] = cmp.mapping(function(fallback)
+      ["<C-n>"] = cmp.mapping(function(fallback)
          if cmp.visible() then
             cmp.select_next_item()
          elseif require("luasnip").expand_or_jumpable() then
