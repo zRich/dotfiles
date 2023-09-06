@@ -4,7 +4,6 @@ vim.opt.confirm = true
 vim.opt.laststatus = 3 -- global statusline
 vim.opt.title = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.cmdheight = 1
 vim.opt.cul = true -- cursor line
 
 -- Indentline

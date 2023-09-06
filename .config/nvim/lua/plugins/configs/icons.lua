@@ -114,6 +114,11 @@ local options = {
          icon = "",
          name = "zip",
       },
+      yaml = {
+         -- yaml icon in nvim-web-devicons
+         icon = "",
+         name = "yaml",
+      },
    },
 }
 

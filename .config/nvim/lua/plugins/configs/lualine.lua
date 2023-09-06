@@ -1,12 +1,6 @@
-local present, lualine = pcall(require, "lualine")
-
-if not present then
-   return
-end
-
-local options = {
-  {
-    icons_enabled = true,
+require('lualine').setup {
+  options = {
+    icons_enabled = false,
     theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
@@ -44,5 +38,3 @@ local options = {
   inactive_winbar = {},
   extensions = {}
 }
-
-lualine.setup(options)

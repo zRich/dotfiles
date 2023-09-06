@@ -250,7 +250,12 @@ M.telescope = function()
    map("n", "<leader>tk", "<cmd> :Telescope keymaps <CR>")
 end
 
-map("n", "<leader>to", "<cmd> :TagbarToggle <CR>")
-map("n", "<leader>tc", "<cmd> :TagbarClose <CR>")
+M.gopher = function ()
+   map("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>")
+   map("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>")
+end
+
+-- map("n", "<leader>to", "<cmd> :TagbarToggle <CR>")
+-- map("n", "<leader>tc", "<cmd> :TagbarClose <CR>")
 
 return M

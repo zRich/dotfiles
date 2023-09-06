@@ -36,8 +36,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup({
   function(use)
-
-    use {"github/copilot.vim"}
+    use { "github/copilot.vim" }
     use { "morhetz/gruvbox" }
     use { 'kaicataldo/material.vim' }
     use { "bluz71/vim-nightfly-colors", as = "nightfly" }
@@ -68,10 +67,11 @@ return require('packer').startup({
     }
 
     use {
-      "kyazdani42/nvim-web-devicons",
-      config = function()
-        require "plugins.configs.icons"
-      end,
+      'nvim-tree/nvim-web-devicons',
+      -- "kyazdani42/nvim-web-devicons",
+      -- config = function()
+      --   require "plugins.configs.icons"
+      -- end,
     }
 
     -- use {
@@ -98,7 +98,7 @@ return require('packer').startup({
 
     use {
       "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      requires = { "nvim-tree/nvim-web-devicons", opt = true },
       config = function()
         require("plugins.configs.lualine")
       end
@@ -185,12 +185,12 @@ return require('packer').startup({
       opt = true,
     }
 
-    -- go lang
     use {
-      "fatih/vim-go",
-      setup = function()
-        require("plugins.configs.go").vimgo()
-      end
+      "olexsmir/gopher.nvim",
+      requires = { -- dependencies
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+      },
     }
 
     use {
@@ -327,7 +327,6 @@ return require('packer').startup({
     use {
       'weirongxu/plantuml-previewer.vim'
     }
-
   end,
 }
 )
