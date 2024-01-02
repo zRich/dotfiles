@@ -1,4 +1,2 @@
-require "core.options"
-require "core.mappings"
-require "plugins"
-vim.cmd('colorscheme vscode')
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
