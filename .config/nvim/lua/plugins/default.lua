@@ -20,6 +20,9 @@ return {
     },
   },
 
+  {
+    "mattn/emmet-vim",
+  },
   -- change trouble config
   {
     "folke/trouble.nvim",
